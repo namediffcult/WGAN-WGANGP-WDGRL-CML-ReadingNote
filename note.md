@@ -152,7 +152,7 @@ $$
 \mathcal{W}_{[P, Q]}=\inf _{\gamma \in \prod_{[P, Q]}} \iint \gamma(x, y) d(x, y) d x d y
 \tag{15}
 $$
-其中$\gamma \in \prod_{[p, q]}$表示$\gamma$服从$[p,q]$的联合分布，$p,q$是$\gamma$的边缘分布，因此有如下关系
+其中$\gamma \in \prod_{[p, q]}$表示$\gamma$服从$[P,Q]$的联合分布，$P,Q$是$\gamma$的边缘分布，因此有如下关系
 $$
 \int\gamma(x,y)dy=P(x)
 \tag{16}
@@ -327,7 +327,7 @@ $$
 
 由$(28)(30)$得
 $$
-\mathcal{W}[P, Q]=\max _{f, g}\left\{\int[P(\boldsymbol{x}) f(\boldsymbol{x})+Q(\boldsymbol{x}) f(\boldsymbol{x})] d \boldsymbol{x} \mid f(\boldsymbol{x})+g(\boldsymbol{y}) \leqslant d(\boldsymbol{x}, \boldsymbol{y})\right\}
+\mathcal{W}[P, Q]=\max _{f, g}\left\{\int[P(\boldsymbol{x}) f(\boldsymbol{x})-Q(\boldsymbol{x}) f(\boldsymbol{x})] d \boldsymbol{x} \mid f(\boldsymbol{x})+g(\boldsymbol{y}) \leqslant d(\boldsymbol{x}, \boldsymbol{y})\right\}
 \tag{31}
 $$
 同时也能写成期望形式，利用极大似然估计拟合真实分布
@@ -341,7 +341,7 @@ $$
 
 即将$(32)$用在GAN的损失函数中
 
-考虑到$(31)$中存在约束条件，我们引入Lipschitz常数，如下：
+考虑到$(31)$中存在约束条件，我们入Lipschitz常数，如下：
 
 > Lipschitz连续，即连续函数$f$要求在定义域上满足任意两个元素$x_1,x_2$满足：
 > $$
@@ -380,7 +380,7 @@ $$
 
 我们以$(33)$强硬的约束条件，不出意外的出意外了
 
-为了区分原方法与新方法，我们称原方法为weight clipping，改进方案为Gradient penalty
+为了区分原方法与新方法，我们称原方法为Weight clipping，改进方案为Gradient penalty
 
 #### WGAN's Problem
 
@@ -504,8 +504,6 @@ $$
 
 ## [CML]Collaborative Metric Learning
 
-*仅简述，且并与上文无关*
-
 前言：基于矩阵分解的模型使用product dot度量user vector和item vector的方式不满足三角不等式，导致MF模型无法捕获用户的细粒度偏好，作者希望通过Large-Margin Nearest Neighbor（LMNN）中提到的“异类远离”的思想，即一个用户所喜欢的商品要远离这个用户不喜欢的商品，并且该距离也会被一个与Rank（物品排序）有关的权重控制。最终实现提升
 
 #### BACKGROUND
@@ -588,7 +586,7 @@ d(i,j)=\parallel u_i-v_i\parallel\\
 \mathcal{D} = \{(x_i,x_j)\mid x_i与x_j不相似\}\\
 \tag{51}
 $$
-结合$LMNN$作者提出损失函数$part1$
+结合$LMNN$作者提出损失函数
 
 Metric Loss Function
 $$
@@ -629,4 +627,3 @@ $$
 
 
 
-完 :)
